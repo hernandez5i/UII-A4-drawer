@@ -1,43 +1,45 @@
+import 'package:requenesdrawerv2/movies.dart';
+import 'package:requenesdrawerv2/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:requenesdrawerv2/rowespacio.dart';
+import 'package:requenesdrawerv2/rowspace.dart';
+import 'package:requenesdrawerv2/rowstretch.dart';
 
-void main() => runApp(MyApp());
+import 'contact.dart';
+import 'inicio.dart';
+
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  static const String inicio = Inicio.routeName;
+  static const String profile = Profile.routeName;
+  static const String movies = Movies.routeName;
+  static const String contacts = Contact.routeName;
+  static const String rowespacio = RowEspacio.routeName;
+  static const String row = Space.routeName;
+  static const String stretch = Stretch.routeName;
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      title: 'Ejemplo Drawer Menu',
       theme: ThemeData(
-        // useMaterial3: false,
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      routes: {
+        inicio: (context) => Inicio(),
+        profile: (context) => Profile(),
+        movies: (context) => Movies(),
+        contacts: (context) => Contact(),
+        rowespacio: (context) => RowEspacio(),
+        row: (context) => Space(),
+        stretch: (context) => Stretch(),
+      },
+      home: Inicio(),
     );
   }
 }
